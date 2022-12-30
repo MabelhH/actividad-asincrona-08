@@ -1,0 +1,45 @@
+<div class="container">
+<form class="row g-3">
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" #nombre>
+    </div>
+    <br>
+    <div class="col-md-6">
+      <label for="apellido" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="apellido" #apellido >
+    </div>
+    <br>
+    <div class="col-md-6">
+      <label for="edad" class="form-label">Edad</label>
+      <input type="number" class="form-control" id="edad" #edad >
+    </div>
+    
+
+    <div class="col-12">
+      <button type="submit" (click)="registrar(nombre.value,apellido.value,edad.value)">Agregar datos</button>
+    </div>
+  </form>
+
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">edad</th>
+        <th scope="col">condicion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nom of datos">
+       <td>{{nom.nombre}}</td>
+       <td>{{nom.apellido}}</td>
+       <td>{{nom.edad}}</td>
+       <td *ngIf="nom.edad >=18">{{nom.nombre}}es mayor de edad</td>
+       <td *ngIf="nom.edad <18">{{nom.nombre}}es menor de edad</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
